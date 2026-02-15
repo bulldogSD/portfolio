@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ post.titulo }} | Blog{% endblock %}
+
+{% block content %}
+<section class="sobre" style="padding-top: 120px; min-height: 100vh;">
+    <div class="container" style="max-width: 700px;">
+        <a href="/blog" style="color: var(--accent); display: inline-block; margin-bottom: 20px;">← Voltar ao Blog</a>
+        <article>
+            <span class="blog-data">{{ post.data }}</span>
+            <h1 style="font-size: 2.2rem; margin: 12px 0 24px;">{{ post.titulo }}</h1>
+            <div style="color: var(--fg3); font-size: 1.1rem; line-height: 1.8;">
+                {{ post.conteudo }}
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}

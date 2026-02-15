@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Blog | Isabella{% endblock %}
+
+{% block content %}
+<section class="sobre" style="padding-top: 120px; min-height: 100vh;">
+    <div class="container">
+        <h2 class="section-title">Blog</h2>
+
+        {% if not posts %}
+        <p style="color: var(--fg2);">Nenhum post publicado ainda.</p>
+        {% endif %}
+
+        <div class="blog-grid">
+            {% for post in posts %}
+            <article class="blog-card">
+                <span class="blog-data">{{ post.data }}</span>
+                <h3><a href="/blog/{{ post.id }}">{{ post.titulo }}</a></h3>
+                <p>{{ post.resumo }}</p>
+                <a href="/blog/{{ post.id }}" class="blog-link">Ler mais →</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

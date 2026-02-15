@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Login Admin{% endblock %}
+
+{% block content %}
+<section class="hero" style="min-height: 100vh;">
+    <div class="container" style="max-width: 400px; margin: 0 auto; padding-top: 120px;">
+        <h2 class="section-title">Painel Admin</h2>
+        <p style="color: var(--fg2); margin-bottom: 30px;">Digite a senha para acessar.</p>
+
+        {% if erro %}
+        <p style="color: #f85149; margin-bottom: 16px; font-weight: 600;">{{ erro }}</p>
+        {% endif %}
+
+        <form method="POST" class="contato-form">
+            <div class="form-group">
+                <input type="password" name="senha" placeholder="Senha" autofocus required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Entrar</button>
+        </form>
+
+        <p style="margin-top: 20px;"><a href="/" style="color: var(--accent);">← Voltar ao site</a></p>
+    </div>
+</section>
+{% endblock %}

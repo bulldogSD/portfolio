@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% block title %}Admin | Isabella{% endblock %}
+
+{% block content %}
+<section class="sobre" style="padding-top: 100px; min-height: 100vh;">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 class="section-title" style="margin-bottom: 0;">Painel Admin</h2>
+            <a href="/admin/logout" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.9rem;">Sair</a>
+        </div>
+
+        <!-- STATS RÁPIDAS -->
+        <div class="admin-stats">
+            <div class="stat">
+                <span class="stat-numero">{{ projetos | length }}</span>
+                <span class="stat-label">Projetos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-numero">{{ posts | length }}</span>
+                <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat">
+                <span class="stat-numero">{{ mensagens | length }}</span>
+                <span class="stat-label">Mensagens</span>
+            </div>
+        </div>
+
+        <!-- ABAS -->
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="projetos">Projetos</button>
+            <button class="admin-tab" data-tab="posts">Blog</button>
+            <button class="admin-tab" data-tab="mensagens">Mensagens</button>
+        </div>
+
+        <!-- ABA PROJETOS -->
+        <div class="admin-panel" id="tab-projetos">
+            <h3>Novo Projeto</h3>
+            <form id="form-projeto" class="admin-form">
+                <input type="text" id="proj-titulo" placeholder="Título" required>
+                <input type="text" id="proj-descricao" placeholder="Descrição">
+                <input type="text" id="proj-categoria" placeholder="Categoria (Python, Web, API...)">
+                <input type="text" id="proj-icone" placeholder="Ícone (emoji)" value="📦">
+                <input type="text" id="proj-techs" placeholder="Tecnologias (separadas por vírgula)">
+                <button type="submit" class="btn btn-primary">Adicionar Projeto</button>
+            </form>
+
+            <h3 style="margin-top: 30px;">Projetos Existentes</h3>
+            <div id="lista-projetos">
+                {% for p in projetos %}
+                <div class="admin-item" data-id="{{ p.id }}">
+                    <div>
+                        <strong>{{ p.icone }} {{ p.titulo }}</strong>
+                        <span class="admin-badge">{{ p.categoria }}</span>
+                    </div>
+                    <button class="btn-delete" onclick="deletar('projetos', {{ p.id }})">Excluir</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- ABA POSTS -->
+        <div class="admin-panel hidden" id="tab-posts">
+            <h3>Novo Post</h3>
+            <form id="form-post" class="admin-form">
+                <input type="text" id="post-titulo" placeholder="Título do post" required>
+                <input type="text" id="post-resumo" placeholder="Resumo curto">
+                <textarea id="post-conteudo" placeholder="Conteúdo do post" rows="6"></textarea>
+                <button type="submit" class="btn btn-primary">Publicar Post</button>
+            </form>
+
+            <h3 style="margin-top: 30px;">Posts Publicados</h3>
+            <div id="lista-posts">
+                {% for p in posts %}
+                <div class="admin-item" data-id="{{ p.id }}">
+                    <div>
+                        <strong>{{ p.titulo }}</strong>
+                        <span class="admin-badge">{{ p.data }}</span>
+                    </div>
+                    <button class="btn-delete" onclick="deletar('posts', {{ p.id }})">Excluir</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- ABA MENSAGENS -->
+        <div class="admin-panel hidden" id="tab-mensagens">
+            <h3>Mensagens Recebidas</h3>
+            <div id="lista-mensagens">
+                {% if not mensagens %}
+                <p style="color: var(--fg2);">Nenhuma mensagem recebida ainda.</p>
+                {% endif %}
+                {% for m in mensagens %}
+                <div class="admin-item msg-item" data-id="{{ m.id }}">
+                    <div>
+                        <strong>{{ m.nome }}</strong> <span style="color: var(--fg2);">({{ m.email }})</span>
+                        <span class="admin-badge">{{ m.data }}</span>
+                        <p style="margin-top: 6px; color: var(--fg3);">{{ m.mensagem }}</p>
+                    </div>
+                    <button class="btn-delete" onclick="deletar('contato', {{ m.id }})">Excluir</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// === ABAS ===
+document.querySelectorAll('.admin-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.admin-panel').forEach(p => p.classList.add('hidden'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.remove('hidden');
+    });
+});
+
+// === CRIAR PROJETO ===
+document.getElementById('form-projeto').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const resp = await fetch('/api/projetos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            titulo: document.getElementById('proj-titulo').value,
+            descricao: document.getElementById('proj-descricao').value,
+            categoria: document.getElementById('proj-categoria').value,
+            icone: document.getElementById('proj-icone').value,
+            tecnologias: document.getElementById('proj-techs').value,
+        })
+    });
+    if (resp.ok) location.reload();
+});
+
+// === CRIAR POST ===
+document.getElementById('form-post').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const resp = await fetch('/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            titulo: document.getElementById('post-titulo').value,
+            resumo: document.getElementById('post-resumo').value,
+            conteudo: document.getElementById('post-conteudo').value,
+        })
+    });
+    if (resp.ok) location.reload();
+});
+
+// === DELETAR ===
+async function deletar(tipo, id) {
+    if (!confirm('Tem certeza que deseja excluir?')) return;
+    const resp = await fetch(`/api/${tipo}/${id}`, { method: 'DELETE' });
+    if (resp.ok) {
+        const item = document.querySelector(`#tab-${tipo === 'contato' ? 'mensagens' : tipo} .admin-item[data-id="${id}"]`);
+        if (item) item.remove();
+    }
+}
+</script>
+{% endblock %}
