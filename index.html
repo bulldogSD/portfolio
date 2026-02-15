@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Isabella<span class="accent">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <p class="hero-greeting">Olá, eu sou</p>
+            <h1 class="hero-name">Isabella</h1>
+            <p class="hero-role">Desenvolvedora Web</p>
+            <p class="hero-desc">
+                Criando soluções digitais com código limpo e design moderno.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                <a href="#contato" class="btn btn-outline">Fale Comigo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-texto">
+                    <p>
+                        Sou uma desenvolvedora em formação, apaixonada por criar
+                        soluções que combinam funcionalidade e design. Estou sempre
+                        aprendendo novas tecnologias e buscando evoluir minhas habilidades.
+                    </p>
+                    <p>
+                        Minha jornada começou com Python e agora estou expandindo
+                        para o mundo do desenvolvimento web, criando interfaces
+                        modernas e aplicações completas.
+                    </p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Tkinter</span>
+                    </div>
+                </div>
+                <div class="sobre-stats">
+                    <div class="stat">
+                        <span class="stat-numero">5</span>
+                        <span class="stat-label">Projetos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-numero">3</span>
+                        <span class="stat-label">Linguagens</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-numero">2026</span>
+                        <span class="stat-label">Início</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="projetos">
+        <div class="container">
+            <h2 class="section-title">Projetos</h2>
+            <div class="projetos-grid">
+
+                <div class="projeto-card" data-categoria="python">
+                    <div class="projeto-header">
+                        <span class="projeto-icon">🧮</span>
+                        <span class="projeto-tag">Python</span>
+                    </div>
+                    <h3>Calculadora Científica</h3>
+                    <p>Calculadora com interface gráfica no estilo Windows, com funções científicas, memória e histórico.</p>
+                    <div class="projeto-tech">
+                        <span>Python</span>
+                        <span>Tkinter</span>
+                    </div>
+                </div>
+
+                <div class="projeto-card" data-categoria="python">
+                    <div class="projeto-header">
+                        <span class="projeto-icon">📁</span>
+                        <span class="projeto-tag">Python</span>
+                    </div>
+                    <h3>Organizador de Arquivos</h3>
+                    <p>App que organiza arquivos por extensão com interface visual, preview e função desfazer.</p>
+                    <div class="projeto-tech">
+                        <span>Python</span>
+                        <span>Tkinter</span>
+                        <span>Shutil</span>
+                    </div>
+                </div>
+
+                <div class="projeto-card" data-categoria="python">
+                    <div class="projeto-header">
+                        <span class="projeto-icon">✅</span>
+                        <span class="projeto-tag">Python</span>
+                    </div>
+                    <h3>To-Do List</h3>
+                    <p>Gerenciador de tarefas com interface gráfica, filtros, edição inline e 14 testes automatizados.</p>
+                    <div class="projeto-tech">
+                        <span>Python</span>
+                        <span>Tkinter</span>
+                        <span>JSON</span>
+                    </div>
+                </div>
+
+                <div class="projeto-card" data-categoria="python">
+                    <div class="projeto-header">
+                        <span class="projeto-icon">💹</span>
+                        <span class="projeto-tag">API</span>
+                    </div>
+                    <h3>Cotações de Moedas</h3>
+                    <p>Dashboard de cotações em tempo real com 12 moedas, abas, variação colorida e atualização assíncrona.</p>
+                    <div class="projeto-tech">
+                        <span>Python</span>
+                        <span>Requests</span>
+                        <span>Threading</span>
+                    </div>
+                </div>
+
+                <div class="projeto-card" data-categoria="web">
+                    <div class="projeto-header">
+                        <span class="projeto-icon">🌐</span>
+                        <span class="projeto-tag">Web</span>
+                    </div>
+                    <h3>Portfolio Pessoal</h3>
+                    <p>Este site! Portfolio responsivo construído do zero com HTML, CSS e JavaScript.</p>
+                    <div class="projeto-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <p class="contato-desc">
+                Tem um projeto em mente ou quer trocar uma ideia? Me manda uma mensagem!
+            </p>
+            <form class="contato-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Seu email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Feito com dedicação por <span class="accent">Isabella</span> — 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
