@@ -32,7 +32,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             // Delay escalonado para cards aparecerem um após o outro
             const delay = entry.target.classList.contains('projeto-card')
-                ? index * 100
+                ? index * 80
                 : 0;
 
             setTimeout(() => {
@@ -169,7 +169,7 @@ function mostrarErro(input, mensagem) {
 const sections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 100;
+    const scrollY = window.scrollY + 120;
 
     sections.forEach(section => {
         const top = section.offsetTop;
@@ -179,9 +179,9 @@ window.addEventListener('scroll', () => {
 
         if (link) {
             if (scrollY >= top && scrollY < top + height) {
-                link.style.color = 'var(--accent)';
+                link.classList.add('active');
             } else {
-                link.style.color = '';
+                link.classList.remove('active');
             }
         }
     });

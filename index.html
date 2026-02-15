@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isabella | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,8 +17,8 @@
             <a href="#" class="logo">Isabella<span class="accent">.</span></a>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="nav-actions">
@@ -32,60 +35,13 @@
     <!-- HERO -->
     <section id="inicio" class="hero">
         <div class="container hero-content">
-            <p class="hero-greeting animate-on-scroll">Olá, eu sou</p>
-            <h1 class="hero-name animate-on-scroll">Isabella</h1>
-            <p class="hero-role animate-on-scroll">Desenvolvedora Web</p>
-            <p class="hero-desc animate-on-scroll">
-                Criando soluções digitais com código limpo e design moderno.
-            </p>
-            <div class="hero-buttons">
+            <p class="hero-label animate-on-scroll">Desenvolvedora Web</p>
+            <h1 class="hero-title animate-on-scroll">
+                Criando experiências digitais com <span class="accent-text">código limpo</span> e design moderno.
+            </h1>
+            <div class="hero-buttons animate-on-scroll">
                 <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-                <a href="#contato" class="btn btn-outline">Fale Comigo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre" class="sobre">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Sobre Mim</h2>
-            <div class="sobre-content">
-                <div class="sobre-texto">
-                    <p>
-                        Sou uma desenvolvedora em formação, apaixonada por criar
-                        soluções que combinam funcionalidade e design. Estou sempre
-                        aprendendo novas tecnologias e buscando evoluir minhas habilidades.
-                    </p>
-                    <p>
-                        Minha jornada começou com Python e agora estou expandindo
-                        para o mundo do desenvolvimento web, criando interfaces
-                        modernas e aplicações completas.
-                    </p>
-                    <div class="skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Tkinter</span>
-                    </div>
-                </div>
-                <div class="sobre-stats">
-                    <div class="stat">
-                        <span class="stat-numero">5</span>
-                        <span class="stat-label">Projetos</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-numero">3</span>
-                        <span class="stat-label">Linguagens</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-numero">2026</span>
-                        <span class="stat-label">Início</span>
-                    </div>
-                </div>
+                <a href="#contato" class="btn btn-ghost">Fale Comigo</a>
             </div>
         </div>
     </section>
@@ -143,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="projeto-card animate-on-scroll" data-categoria="python">
+                <div class="projeto-card animate-on-scroll" data-categoria="api">
                     <div class="projeto-header">
                         <span class="projeto-icon">💹</span>
                         <span class="projeto-tag">API</span>
@@ -175,11 +131,56 @@
         </div>
     </section>
 
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-texto">
+                    <p>
+                        Sou uma desenvolvedora em formação, apaixonada por criar
+                        soluções que combinam funcionalidade e design. Estou sempre
+                        aprendendo novas tecnologias e buscando evoluir minhas habilidades.
+                    </p>
+                    <p>
+                        Minha jornada começou com Python e agora estou expandindo
+                        para o mundo do desenvolvimento web, criando interfaces
+                        modernas e aplicações completas.
+                    </p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Tkinter</span>
+                    </div>
+                </div>
+                <div class="sobre-stats">
+                    <div class="stat">
+                        <span class="stat-numero">5</span>
+                        <span class="stat-label">Projetos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-numero">3</span>
+                        <span class="stat-label">Linguagens</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-numero">2026</span>
+                        <span class="stat-label">Início</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTATO -->
     <section id="contato" class="contato">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Contato</h2>
-            <p class="contato-desc">
+            <p class="contato-desc animate-on-scroll">
                 Tem um projeto em mente ou quer trocar uma ideia? Me manda uma mensagem!
             </p>
             <form class="contato-form animate-on-scroll" id="form-contato">

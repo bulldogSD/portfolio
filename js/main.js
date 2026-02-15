@@ -30,9 +30,8 @@ window.addEventListener('scroll', () => {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            // Delay escalonado para cards aparecerem um após o outro
             const delay = entry.target.classList.contains('projeto-card')
-                ? index * 100
+                ? index * 80
                 : 0;
 
             setTimeout(() => {
@@ -57,7 +56,6 @@ const cards = document.querySelectorAll('.projeto-card');
 
 filtroBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Atualiza botão ativo
         filtroBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
@@ -78,7 +76,6 @@ filtroBtns.forEach(btn => {
 // === TOGGLE TEMA CLARO/ESCURO ===
 const themeToggle = document.querySelector('.theme-toggle');
 
-// Carrega preferência salva
 const temaSalvo = localStorage.getItem('tema');
 if (temaSalvo === 'claro') {
     document.body.classList.add('tema-claro');
@@ -91,7 +88,6 @@ themeToggle.addEventListener('click', () => {
     const isClaro = document.body.classList.contains('tema-claro');
     themeToggle.textContent = isClaro ? '☀️' : '🌙';
 
-    // Salva preferência
     localStorage.setItem('tema', isClaro ? 'claro' : 'escuro');
 });
 
@@ -110,32 +106,27 @@ form.addEventListener('submit', (e) => {
     document.querySelectorAll('.form-erro').forEach(el => el.textContent = '');
     document.querySelectorAll('.erro').forEach(el => el.classList.remove('erro'));
 
-    // Valida nome
     if (nome.value.trim().length < 2) {
         mostrarErro(nome, 'Nome deve ter pelo menos 2 caracteres.');
         valido = false;
     }
 
-    // Valida email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
         mostrarErro(email, 'Digite um email válido.');
         valido = false;
     }
 
-    // Valida mensagem
     if (mensagem.value.trim().length < 10) {
         mostrarErro(mensagem, 'Mensagem deve ter pelo menos 10 caracteres.');
         valido = false;
     }
 
     if (valido) {
-        // Mostra sucesso
         const sucesso = document.querySelector('.form-sucesso');
         sucesso.style.display = 'block';
         form.reset();
 
-        // Esconde depois de 4 segundos
         setTimeout(() => {
             sucesso.style.display = 'none';
         }, 4000);
@@ -152,7 +143,7 @@ function mostrarErro(input, mensagem) {
 const sections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 100;
+    const scrollY = window.scrollY + 120;
 
     sections.forEach(section => {
         const top = section.offsetTop;
@@ -162,9 +153,9 @@ window.addEventListener('scroll', () => {
 
         if (link) {
             if (scrollY >= top && scrollY < top + height) {
-                link.style.color = 'var(--accent)';
+                link.classList.add('active');
             } else {
-                link.style.color = '';
+                link.classList.remove('active');
             }
         }
     });
