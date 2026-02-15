@@ -12,16 +12,20 @@
         <!-- STATS RÁPIDAS -->
         <div class="admin-stats">
             <div class="stat">
-                <span class="stat-numero">{{ projetos | length }}</span>
+                <span class="stat-numero">{{ stats.projetos }}</span>
                 <span class="stat-label">Projetos</span>
             </div>
             <div class="stat">
-                <span class="stat-numero">{{ posts | length }}</span>
+                <span class="stat-numero">{{ stats.posts }}</span>
                 <span class="stat-label">Posts</span>
             </div>
             <div class="stat">
-                <span class="stat-numero">{{ mensagens | length }}</span>
+                <span class="stat-numero">{{ stats.mensagens }}</span>
                 <span class="stat-label">Mensagens</span>
+            </div>
+            <div class="stat">
+                <span class="stat-numero">{{ stats.visitas }}</span>
+                <span class="stat-label">Visitas</span>
             </div>
         </div>
 
